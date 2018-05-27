@@ -1,4 +1,3 @@
-import codecs
 import http.client
 import time
 import threading
@@ -7,12 +6,10 @@ from Data import SharedMemory
 from PyQt5 import QtCore
 from PyQt5.QtCore import *
 import urllib.parse
-from serial422 import RS422Func
 import logging.config
 from os import path
 import os
-#from gpioctr import GpioCtr
-import configparser
+from gpioctr import GpioCtr
 
 MyLog2 = logging.getLogger('ws_debug_log2')       #log data
 MajorLog = logging.getLogger('ws_error_log')      #log error
@@ -36,7 +33,7 @@ class WebServer(QThread):
         MyLog2.debug(self.StrID)
 
         global conn
-        conn =http.client.HTTPConnection("115.29.198.207:80",timeout=10)
+        conn =http.client.HTTPConnection("192.168.0.115:8083",timeout=10)
        # conn = http.client.HTTPConnection("http://weiweitong.daoyintech.com")
         self.FrontRebootTag = 10
         self.ThreadTag = True
@@ -53,7 +50,7 @@ class WebServer(QThread):
     def run(self):
         MyLog2.debug("WebServer run again try reconnect1")
         self.ThreadTag = True
-        conn =http.client.HTTPConnection("115.29.198.207:80",timeout=10)
+        conn =http.client.HTTPConnection("192.168.0.115:8083",timeout=10)
         t = threading.Thread(target=ServerOn, args=(conn, self))
         t.start()
 
@@ -112,7 +109,7 @@ def ServerOn(conn,self):
 
                 EPDUStr +='eb90'+item.addr +status+item.car+item.battery+item.ErrorCode      #'eb90'+地址+状态+电量+异常代码+'AAAA09d7'
                 pass
-        SendToWebstr = '/devices/connect/1ACF'+self.StrID + str(EPDUNums).zfill(2)+EPDUStr
+        SendToWebstr = '/wwt-services-external/restful/server/position/secure/receiveServerRequest/1ACF'+self.StrID + str(EPDUNums).zfill(2)+EPDUStr
         MyLog2.info('SendToServer:'+SendToWebstr)
         try:
             conn.request("POST",urllib.parse.quote(SendToWebstr))
@@ -124,7 +121,7 @@ def ServerOn(conn,self):
             MajorLog.error("Exception lostcount=:" + str(self.lostcount))
             if self.lostcount > 3:
                 MajorLog.error("Try Reconnect To Server:" + str(self.rebootwait))
-                conn = http.client.HTTPConnection("115.29.198.207:80", timeout=10)
+                conn = http.client.HTTPConnection("192.168.0.115:8083", timeout=10)
                 time.sleep(10)
                 self.lostcount = 0
                 self.rebootwait +=1
@@ -182,7 +179,7 @@ def ServerOn(conn,self):
                             os.system('reboot')
                             pass
 
-                    if data1[0:4] == 'eb90' and data1[4:6]!='00':
+                    if data1[0:4] == 'eb90' and data1[4:12]!='00000000':
                         cmdlist = data1[4:len(data1)].split(';')
              #           MyLog2.debug(cmdlist)
              #           MyLog2.debug(len(cmdlist))
@@ -190,9 +187,9 @@ def ServerOn(conn,self):
                             temp = cmdlist[i]
               #              MyLog2.debug('cmdlist='+temp)
 
-                            addr = temp[0:2]
-                            cmdtype = temp[2:4]
-                            cmd = temp[4:6]
+                            addr = temp[0:8]
+                            cmdtype = temp[8:10]
+                            cmd = temp[10:12]
 
                             strToserial = ''  # 控制指令
                             if cmd == '03':

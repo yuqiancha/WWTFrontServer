@@ -162,7 +162,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = (Address + '0420010004').replace('\t', '').replace(' ', '').replace('\n', '').strip()
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
  #       print('ChaXun:'+SendStr)
         self.WriteToPort(SendStr)
         data = recv(ser, self)
@@ -170,27 +170,27 @@ class RS422Func(QThread):
 
     def LockCMDExcute(self, str):
         MyLog.debug("触发Lockcmdexcute")
-        if len(str) == 4:
+        if len(str) == 10:
             if str[0:2] == '03':
-                self.LockReset(str[2:4])
+                self.LockReset(str[2:10])
             elif str[0:2] == '04':
-                self.LockUp(str[2:4])
+                self.LockUp(str[2:10])
             elif str[0:2] == '05':
-                self.LockDown(str[2:4])
+                self.LockDown(str[2:10])
             elif str[0:2] == '06':
-                self.LockDownAndRest(str[2:4])
+                self.LockDownAndRest(str[2:10])
             elif str[0:2] == '07':
-                self.LedOn(str[2:4])
+                self.LedOn(str[2:10])
             elif str[0:2] == '17':
-                self.LedOff(str[2:4])
+                self.LedOff(str[2:10])
             elif str[0:2] == '08':
-                self.EnableAlarm(str[2:4])
+                self.EnableAlarm(str[2:10])
             elif str[0:2] == '09':
-                self.DisableAlarm(str[2:4])
+                self.DisableAlarm(str[2:10])
             elif str[0:2] == 'F1':
-                self.ChaoShengTest(str[2:4])
+                self.ChaoShengTest(str[2:10])
             elif str[0:2] == 'F4':
-                self.QuitTest(str[2:4])
+                self.QuitTest(str[2:10])
             else:
                 # to do other things here
                 pass
@@ -205,7 +205,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '0601050300'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LockReset:' + SendStr)
 
         self.WriteToPort(SendStr)
@@ -214,7 +214,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '0601050000'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LockReset:' + SendStr)
 
         self.WriteToPort(SendStr)
@@ -224,7 +224,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051001FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LockReset:' + SendStr)
 
         self.WriteToPort(SendStr)
@@ -233,7 +233,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051002FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LockUp:' + SendStr)
         self.WriteToPort(SendStr)
 
@@ -242,7 +242,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051003FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LockDown:' + SendStr)
         self.WriteToPort(SendStr)
         for lock in SharedMemory.LockList:
@@ -265,7 +265,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051006FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LockDownAndRest:' + SendStr)
         self.WriteToPort(SendStr)
 
@@ -273,7 +273,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051008FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LedOn:' + SendStr)
         self.WriteToPort(SendStr)
 
@@ -282,7 +282,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051009FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('LedOff:' + SendStr)
         self.WriteToPort(SendStr)
 
@@ -290,7 +290,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051004FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('EnableAlarm:' + SendStr)
         self.WriteToPort(SendStr)
 
@@ -298,7 +298,7 @@ class RS422Func(QThread):
         Address = str
         Tempstr = Address + '051005FF00'
         strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-        SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+        SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
         MyLog.debug('DisableAlarm:' + SendStr)
         self.WriteToPort(SendStr)
 
@@ -319,16 +319,16 @@ class RS422Func(QThread):
 
 def InitPortList(ser,self):
     MyLog.info('Enter InitPortList')
-    ScanMaxLock = 0x1f
+    ScanMaxLock = 0x11345679
     if ser.isOpen():
-        count = 0
+        count = 0x11345677
         while count < ScanMaxLock:
-            Address = hex(count)[2:].zfill(2)
+            Address = hex(count)[2:].zfill(8)
             Tempstr = (Address + '0420010004').replace('\t', '').replace(' ', '').replace('\n', '').strip()
             count += 1
 
             strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-            SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+            SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
             d = bytes.fromhex(SendStr)
             ser.write(d)
             t.sleep(0.1)
@@ -338,14 +338,14 @@ def InitPortList(ser,self):
                 MyLog.error(ex)
         MyLog.debug(SharedMemory.LockList)
 
-        count = 0
+        count = 0x11345677
         while count < ScanMaxLock:
-            Address = hex(count)[2:].zfill(2)
+            Address = hex(count)[2:].zfill(8)
             Tempstr = (Address + '0420010004').replace('\t', '').replace(' ', '').replace('\n', '').strip()
             count += 1
 
             strcrc = hex(crc16_xmode(unhexlify(Tempstr)))[2:].zfill(4)
-            SendStr = 'eb9008' + Tempstr + strcrc[2:4] + strcrc[0:2]
+            SendStr = 'eb900b' + Tempstr + strcrc[2:4] + strcrc[0:2]
             d = bytes.fromhex(SendStr)
             ser.write(d)
             t.sleep(0.1)
@@ -397,30 +397,43 @@ def recv(serial,self):
         #    print(data)
             str_back = str(hexlify(data), "utf-8")
      #       MyLog.debug('RecvFromLock:' + str_back)
-            if len(str_back)==32:
-                if str_back[0:6]=='eb900d':
-                    strid = str_back[6:8]
+            if len(str_back)==38:
+                if str_back[0:6]=='eb9010':
+                    #strid = str_back[6:8]
+                    strid = str_back[6:14]
                     MyLog.info('RecvFromLock:' + str_back)
                     if strid not in stridList:
                         stridList.append(strid)
                         #print('Not in the list and Add on')
                         newLock=MyLock()
-                        newLock.addr =str_back[6:8]
-#                        newLock.reservd1 = str_back[8:10]
-#                        newLock.reservd2 = str_back[10:12]
-#                        newLock.reservd3 = str_back[12:14]
+
+                        newLock.addr = str_back[6:14]
                         newLock.reservd1 = ''
                         newLock.reservd2 = ''
                         newLock.reservd3 = ''
-                        newLock.mode =str_back[14:16]
-                        newLock.arm = str_back[16:18]
-                        newLock.car = str_back[18:20]
-                        newLock.battery = str_back[20:22]
-                        newLock.reservd4 = str_back[22:24]
-                        newLock.sensor = str_back[24:26]
-                        newLock.machine = str_back[26:28]
-                        newLock.crcH=str_back[28:30]
-                        newLock.crcL=str_back[30:32]
+                        newLock.mode = str_back[20:22]
+                        newLock.arm = str_back[22:24]
+                        newLock.car = str_back[24:26]
+                        newLock.battery = str_back[26:28]
+                        newLock.reservd4 = str_back[28:30]
+                        newLock.sensor = str_back[30:32]
+                        newLock.machine = str_back[32:34]
+                        newLock.crcH = str_back[34:36]
+                        newLock.crcL = str_back[36:38]
+
+                        #newLock.addr =str_back[6:8]
+                        #newLock.reservd1 = str_back[8:10]
+                        #newLock.reservd2 = str_back[10:12]
+                        #newLock.reservd3 = str_back[12:14]
+                        #newLock.mode =str_back[14:16]
+                        #newLock.arm = str_back[16:18]
+                        #newLock.car = str_back[18:20]
+                        #newLock.battery = str_back[20:22]
+                        #newLock.reservd4 = str_back[22:24]
+                        #newLock.sensor = str_back[24:26]
+                        #newLock.machine = str_back[26:28]
+                        #newLock.crcH=str_back[28:30]
+                        #newLock.crcL=str_back[30:32]
                         SharedMemory.LockList.append(newLock)
                         self.signal_newLock.emit(newLock)
                         MyLog.info('New lock detected!')
@@ -428,48 +441,71 @@ def recv(serial,self):
                         #print('Already in the list')
                         for lock in SharedMemory.LockList:
                             if lock.addr == strid:
-                         #       if lock.reservd1 != str_back[8:10]:
-                         #           lock.reservd1 = str_back[8:10]
-                         #           lock.StatusChanged = True
 
-                         #       if lock.reservd2 != str_back[10:12]:
-                         #           lock.reservd2 = str_back[10:12]
-                         #           lock.StatusChanged = True
-
-                         #       if lock.reservd3 != str_back[12:14]:
-                         #           lock.reservd3 = str_back[12:14]
-                         #           lock.StatusChanged = True;
-                                if lock.mode != str_back[14:16]:
-                                    lock.mode = str_back[14:16]
+                                if lock.mode != str_back[20:22]:
+                                    lock.mode = str_back[20:22]
                                     lock.StatusChanged = True
 
-                                if lock.arm != str_back[16:18]:
-                                    lock.arm = str_back[16:18]
+                                if lock.arm != str_back[22:24]:
+                                    lock.arm = str_back[22:24]
                                     lock.StatusChanged = True
 
-                                if lock.car != str_back[18:20]:
-                                    lock.car = str_back[18:20]
+                                if lock.car != str_back[24:26]:
+                                    lock.car = str_back[24:26]
                                     lock.StatusChanged = True
 
-                                if lock.battery != str_back[20:22]:
-                                    lock.battery = str_back[20:22]
+                                if lock.battery != str_back[26:28]:
+                                    lock.battery = str_back[26:28]
                                     lock.StatusChanged = True
 
-                                if lock.reservd4 != str_back[22:24]:
-                                    lock.reservd4 = str_back[22:24]
+                                if lock.reservd4 != str_back[28:30]:
+                                    lock.reservd4 = str_back[28:30]
                                     lock.StatusChanged = True
 
-                                if lock.sensor != str_back[24:26]:
-                                    lock.sensor = str_back[24:26]
+                                if lock.sensor != str_back[30:32]:
+                                    lock.sensor = str_back[30:32]
                                     lock.StatusChanged = True
 
 
-                                if lock.machine != str_back[26:28]:
-                                    lock.machine = str_back[26:28]
+                                if lock.machine != str_back[32:34]:
+                                    lock.machine = str_back[32:34]
                                     lock.StatusChanged = True
 
-                                lock.crcH = str_back[28:30]
-                                lock.crcL = str_back[30:32]
+                                lock.crcH = str_back[34:36]
+                                lock.crcL = str_back[36:38]
+
+                                # if lock.mode != str_back[14:16]:
+                                #     lock.mode = str_back[14:16]
+                                #     lock.StatusChanged = True
+                                #
+                                # if lock.arm != str_back[16:18]:
+                                #     lock.arm = str_back[16:18]
+                                #     lock.StatusChanged = True
+                                #
+                                # if lock.car != str_back[18:20]:
+                                #     lock.car = str_back[18:20]
+                                #     lock.StatusChanged = True
+                                #
+                                # if lock.battery != str_back[20:22]:
+                                #     lock.battery = str_back[20:22]
+                                #     lock.StatusChanged = True
+                                #
+                                # if lock.reservd4 != str_back[22:24]:
+                                #     lock.reservd4 = str_back[22:24]
+                                #     lock.StatusChanged = True
+                                #
+                                # if lock.sensor != str_back[24:26]:
+                                #     lock.sensor = str_back[24:26]
+                                #     lock.StatusChanged = True
+                                #
+                                #
+                                # if lock.machine != str_back[26:28]:
+                                #     lock.machine = str_back[26:28]
+                                #     lock.StatusChanged = True
+                                #
+                                # lock.crcH = str_back[28:30]
+                                # lock.crcL = str_back[30:32]
+
 
 #                                if lock.StatusChanged:
 #                                    MyLog.info('RecvFromLock:' + str_back)

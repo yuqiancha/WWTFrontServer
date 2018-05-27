@@ -1,0 +1,85 @@
+''2018-05-20 15:41:26' - DEBUG - WebService in'
+''2018-05-20 15:41:26' - DEBUG - 沪A0207
+'
+''2018-05-20 15:41:29' - INFO - WebService ServerOn thread on'
+''2018-05-20 15:41:29' - DEBUG - Requesting!'
+''2018-05-20 15:41:29' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:29' - INFO - RecvFrServer:eb90000101'
+''2018-05-20 15:41:31' - DEBUG - Requesting!'
+''2018-05-20 15:41:31' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:31' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:33' - DEBUG - Requesting!'
+''2018-05-20 15:41:33' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:33' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:35' - DEBUG - Requesting!'
+''2018-05-20 15:41:35' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:36' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:38' - DEBUG - Requesting!'
+''2018-05-20 15:41:38' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:38' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:40' - DEBUG - Requesting!'
+''2018-05-20 15:41:40' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:40' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:42' - DEBUG - Requesting!'
+''2018-05-20 15:41:42' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:42' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:44' - DEBUG - Requesting!'
+''2018-05-20 15:41:44' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:44' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:46' - DEBUG - Requesting!'
+''2018-05-20 15:41:46' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:46' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:48' - DEBUG - Requesting!'
+''2018-05-20 15:41:48' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:48' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:50' - DEBUG - Requesting!'
+''2018-05-20 15:41:50' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:50' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:52' - DEBUG - Requesting!'
+''2018-05-20 15:41:52' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:52' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:54' - DEBUG - Requesting!'
+''2018-05-20 15:41:54' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:54' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:41:56' - DEBUG - Requesting!'
+''2018-05-20 15:41:56' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:41:56' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:42:03' - DEBUG - WebService in'
+''2018-05-20 15:42:03' - DEBUG - 沪A0207
+'
+''2018-05-20 15:42:06' - INFO - WebService ServerOn thread on'
+''2018-05-20 15:42:06' - DEBUG - Requesting!'
+''2018-05-20 15:42:06' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 15:42:07' - INFO - RecvFrServer:Heart'
+''2018-05-20 15:42:09' - INFO - WebService Server Thread off!'
+''2018-05-20 16:30:20' - DEBUG - WebService in'
+''2018-05-20 16:30:20' - DEBUG - 沪A0207
+'
+''2018-05-20 16:30:23' - INFO - WebService ServerOn thread on'
+''2018-05-20 16:30:23' - DEBUG - Requesting!'
+''2018-05-20 16:30:23' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 16:30:23' - INFO - RecvFrServer:eb90000101'
+''2018-05-20 16:30:25' - DEBUG - Requesting!'
+''2018-05-20 16:30:25' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 16:30:25' - INFO - RecvFrServer:Heart'
+''2018-05-20 16:30:27' - DEBUG - Requesting!'
+''2018-05-20 16:30:27' - INFO - SendToServer:/devices/connect/1ACF沪A0207
+00'
+''2018-05-20 16:30:27' - INFO - RecvFrServer:Heart'

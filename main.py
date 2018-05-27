@@ -1,6 +1,4 @@
 import sys
-import serial
-from PyQt5 import QtCore
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import binascii
@@ -12,7 +10,7 @@ from WebService import WebServer
 import time
 import logging
 import logging.config
-#from gpioctr import GpioCtr
+from gpioctr import GpioCtr
 from os import path
 
 log_file_path = path.join(path.dirname(path.abspath(__file__)), 'logging.config')
@@ -378,7 +376,7 @@ if __name__ == '__main__':
     ex=Main()
     ex.show()
 
-#    gpio = GpioCtr()
+    gpio = GpioCtr()
 
     rs422 = RS422Func()
     rs422.ScanPort()

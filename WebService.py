@@ -9,7 +9,8 @@ import urllib.parse
 import logging.config
 from os import path
 import os
-from gpioctr import GpioCtr
+#from gpioctr import GpioCtr
+import json
 
 MyLog2 = logging.getLogger('ws_debug_log2')       #log data
 MajorLog = logging.getLogger('ws_error_log')      #log error
@@ -109,10 +110,14 @@ def ServerOn(conn,self):
 
                 EPDUStr +='eb90'+item.addr +status+item.car+item.battery+item.ErrorCode      #'eb90'+地址+状态+电量+异常代码+'AAAA09d7'
                 pass
-        SendToWebstr = '/wwt-services-external/restful/server/position/secure/receiveServerRequest/1ACF'+self.StrID + str(EPDUNums).zfill(2)+EPDUStr
+        SendToWebstr = '1ACF'+self.StrID + str(EPDUNums).zfill(2)+EPDUStr
         MyLog2.info('SendToServer:'+SendToWebstr)
         try:
-            conn.request("POST",urllib.parse.quote(SendToWebstr))
+            requrl = "http://192.168.0.115:8083/wwt-services-external/restful/server/position/secure/receiveServerRequest"
+            #conn.request("POST",urllib.parse.quote(SendToWebstr))
+            headerdata = {"Content-type": "application/json"}
+            sendData = {"param":SendToWebstr}
+            conn.request('POST', requrl, json.dumps(sendData), headerdata)
 
         except Exception as ex1:
             MajorLog.error('Error From conn.requeset Post Failed')
@@ -143,16 +148,31 @@ def ServerOn(conn,self):
             pass
 
         data1 = ''
+        RecvData = ''
         try:
             r1 = conn.getresponse()
-            data1 = r1.read()
-            data1 = str(data1, 'utf-8')
-            MyLog2.info('RecvFrServer:' + data1)
+            RecvData = r1.read()
+
+            RecvData = str(RecvData, 'utf-8')
+            MyLog2.info(RecvData)
+
+            data2 = json.loads(RecvData)
+            #MyLog2.info(data2)
+            if data2['result']!=None:
+                data1 = (data2['result'])
+            else:
+                data1 = 'null'
+#            print(data1)
+
+#            MyLog2.info('RecvFrServer:' + data1)
 
             if data1 == '':
                 MyLog2.error('未收到服务器回复！')
                 pass
-            elif data1 == 'Heart':
+            elif data1 =='null':
+                MyLog2.error('服务器返回null')
+            elif data1 == 'Heart' or data1=='heart':
+
                 self.rebootwait = 0 #收到心跳则将rebootwait计数重置为0
                 pass
             else:

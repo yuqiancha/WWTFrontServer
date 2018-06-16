@@ -319,9 +319,9 @@ class RS422Func(QThread):
 
 def InitPortList(ser,self):
     MyLog.info('Enter InitPortList')
-    ScanMaxLock = 0x11345679
+    ScanMaxLock = 0x11000010
     if ser.isOpen():
-        count = 0x11345677
+        count = 0x11000000
         while count < ScanMaxLock:
             Address = hex(count)[2:].zfill(8)
             Tempstr = (Address + '0420010004').replace('\t', '').replace(' ', '').replace('\n', '').strip()
@@ -338,7 +338,7 @@ def InitPortList(ser,self):
                 MyLog.error(ex)
         MyLog.debug(SharedMemory.LockList)
 
-        count = 0x11345677
+        count = 0x11000000
         while count < ScanMaxLock:
             Address = hex(count)[2:].zfill(8)
             Tempstr = (Address + '0420010004').replace('\t', '').replace(' ', '').replace('\n', '').strip()

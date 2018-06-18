@@ -1,4 +1,3 @@
-
 #查询回复eb 90 0d 01 04 08 00 ff 55 00 64 00 00 00 38 37
 class MyLock(object):
     def __init__(self):

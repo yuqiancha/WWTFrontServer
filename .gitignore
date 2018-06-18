@@ -1,2 +1,3 @@
-
+*.xml
+Log/*
 Log/.DS_Store

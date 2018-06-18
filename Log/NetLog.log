@@ -1,6 +1,76 @@
-''2018-05-28 17:35:13' - DEBUG - WebService in'
-''2018-05-28 17:35:13' - DEBUG - 沪A0888'
-''2018-05-28 17:35:16' - INFO - WebService ServerOn thread on'
-''2018-05-28 17:35:16' - DEBUG - Requesting!'
-''2018-05-28 17:35:16' - INFO - SendToServer:1ACF沪A088800'
-''2018-05-28 17:35:26' - INFO - WebService Server Thread off!'
+''2018-06-18 16:16:29' - DEBUG - WebService in'
+''2018-06-18 16:16:29' - DEBUG - 沪A0888'
+''2018-06-18 16:17:47' - DEBUG - WebService in'
+''2018-06-18 16:17:47' - DEBUG - 沪A0888'
+''2018-06-18 16:17:50' - INFO - WebService ServerOn thread on'
+''2018-06-18 16:17:50' - DEBUG - Requesting!'
+''2018-06-18 16:17:50' - INFO - SendToServer:1ACF沪A088800'
+''2018-06-18 16:18:18' - DEBUG - WebService in'
+''2018-06-18 16:18:18' - DEBUG - 沪A0887'
+''2018-06-18 16:18:21' - INFO - WebService ServerOn thread on'
+''2018-06-18 16:18:21' - DEBUG - Requesting!'
+''2018-06-18 16:18:21' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:18:51' - DEBUG - Requesting!'
+''2018-06-18 16:18:51' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:18:51' - DEBUG - Requesting!'
+''2018-06-18 16:18:51' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:18:51' - DEBUG - Requesting!'
+''2018-06-18 16:18:51' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:19:54' - DEBUG - WebService in'
+''2018-06-18 16:19:54' - DEBUG - 沪A0887'
+''2018-06-18 16:19:57' - INFO - WebService ServerOn thread on'
+''2018-06-18 16:19:57' - DEBUG - Requesting!'
+''2018-06-18 16:19:57' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:19:58' - INFO - <html>
+<head><title>400 The plain HTTP request was sent to HTTPS port</title></head>
+<body bgcolor="white">
+<center><h1>400 Bad Request</h1></center>
+<center>The plain HTTP request was sent to HTTPS port</center>
+<hr><center>nginx/1.14.0</center>
+</body>
+</html>
+'
+''2018-06-18 16:19:58' - ERROR - From conn.getresponse:'
+''2018-06-18 16:19:58' - ERROR - Expecting value: line 1 column 1 (char 0)'
+''2018-06-18 16:20:00' - DEBUG - Requesting!'
+''2018-06-18 16:20:00' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:20:00' - INFO - <html>
+<head><title>400 The plain HTTP request was sent to HTTPS port</title></head>
+<body bgcolor="white">
+<center><h1>400 Bad Request</h1></center>
+<center>The plain HTTP request was sent to HTTPS port</center>
+<hr><center>nginx/1.14.0</center>
+</body>
+</html>
+'
+''2018-06-18 16:20:00' - ERROR - From conn.getresponse:'
+''2018-06-18 16:20:00' - ERROR - Expecting value: line 1 column 1 (char 0)'
+''2018-06-18 16:20:02' - DEBUG - Requesting!'
+''2018-06-18 16:20:02' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:20:02' - INFO - <html>
+<head><title>400 The plain HTTP request was sent to HTTPS port</title></head>
+<body bgcolor="white">
+<center><h1>400 Bad Request</h1></center>
+<center>The plain HTTP request was sent to HTTPS port</center>
+<hr><center>nginx/1.14.0</center>
+</body>
+</html>
+'
+''2018-06-18 16:20:02' - ERROR - From conn.getresponse:'
+''2018-06-18 16:20:02' - ERROR - Expecting value: line 1 column 1 (char 0)'
+''2018-06-18 16:20:04' - INFO - WebService Server Thread off!'
+''2018-06-18 16:20:43' - DEBUG - WebService in'
+''2018-06-18 16:20:43' - DEBUG - 沪A0887'
+''2018-06-18 16:20:46' - INFO - WebService ServerOn thread on'
+''2018-06-18 16:20:46' - DEBUG - Requesting!'
+''2018-06-18 16:20:46' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:20:46' - INFO - {"result":"heart"}'
+''2018-06-18 16:20:48' - DEBUG - Requesting!'
+''2018-06-18 16:20:48' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:20:48' - INFO - {"result":"heart"}'
+''2018-06-18 16:20:50' - DEBUG - Requesting!'
+''2018-06-18 16:20:50' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:20:50' - INFO - {"result":"heart"}'
+''2018-06-18 16:20:52' - DEBUG - Requesting!'
+''2018-06-18 16:20:52' - INFO - SendToServer:1ACF沪A088700'
+''2018-06-18 16:20:52' - INFO - {"result":"heart"}'

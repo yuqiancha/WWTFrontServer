@@ -34,8 +34,8 @@ class WebServer(QThread):
         MyLog2.debug(self.StrID)
 
         global conn
-        conn =http.client.HTTPConnection("106.15.193.149:8080",timeout=10)
-       # conn = http.client.HTTPConnection("http://weiweitong.daoyintech.com")
+       # conn =http.client.HTTPConnection("106.15.193.149:443",timeout=10)
+        conn = http.client.HTTPSConnection("www.bohold.cn",port=443,timeout=10)
         self.FrontRebootTag = 10
         self.ThreadTag = True
         t = threading.Thread(target=ServerOn, args=(conn, self))
@@ -51,7 +51,8 @@ class WebServer(QThread):
     def run(self):
         MyLog2.debug("WebServer run again try reconnect1")
         self.ThreadTag = True
-        conn =http.client.HTTPConnection("106.15.193.149:8080",timeout=10)
+#        conn =http.client.HTTPConnection("106.15.193.149:433",timeout=10)
+        conn = http.client.HTTPSConnection("www.bohold.cn",port=443,timeout=10)
         t = threading.Thread(target=ServerOn, args=(conn, self))
         t.start()
 

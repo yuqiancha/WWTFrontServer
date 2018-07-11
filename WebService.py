@@ -114,7 +114,7 @@ def ServerOn(conn,self):
         SendToWebstr = '1ACF'+self.StrID + str(EPDUNums).zfill(2)+EPDUStr
         MyLog2.info('SendToServer:'+SendToWebstr)
         try:
-            requrl = "www.bohold.cn/wwt-services-external/restful/server/position/secure/receiveServerRequest"
+            requrl = "https://www.bohold.cn/wwt-services-external/restful/server/position/secure/receiveServerRequest"
             #conn.request("POST",urllib.parse.quote(SendToWebstr))
             headerdata = {"Content-type": "application/json"}
             sendData = {"param":SendToWebstr}
